@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJP Booth & Panchayath Contact Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #ff6f00;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .action-btn {
+            background-color: #ff6f00;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+        .action-btn img {
+            width: 20px;
+            height: 20px;
+        }
+        .action-btn:hover {
+            opacity: 0.8;
+        }
+        .btn-group {
+            display: inline-flex;
+            gap: 10px;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            table, th, td {
+                font-size: 12px;
+            }
+            th, td {
+                padding: 8px;
+            }
+            .action-btn {
+                padding: 6px;
+            }
+        }
+        @media (max-width: 480px) {
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+        header, footer {
+            background-color: #FF6F00;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+        .logo {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="bjplogo.svg" alt="Logo" class="logo">
+        </a>
+        <h1>BJP Booth & Panchayath Contact Information - Mulki-Moodubidre</h1>
+    </header>
+
+    <!-- Booth Contact Information Table -->
+    <h2>Booth Contact Information</h2>
+    <table id="booth-table">
+        <thead>
+            <tr>
+                <th>Sl. No.</th>
+                <th>Name</th>
+                <th>Place</th>
+                <th>Mobile No.</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- Panchayath Contact Information Table -->
+    <h2>Panchayath President and Vice President Information</h2>
+    <table id="panchayath-table">
+        <thead>
+            <tr>
+                <th>Sl. No.</th>
+                <th>Panchayath Name</th>
+                <th>Post</th>
+                <th>Name</th>
+                <th>Mobile No.</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <footer>
+        <h4>Designed and Developed with ❤️ by 
+            <a href="https://roshanvijay.com" target="_blank" style="text-decoration: none; color: #fff;">
+                <b>Roshan Vijay Shetty</b>
+            </a>
+        </h4>
+    </footer>
+
+    <script>
+        const boothData = [
+            { sl_no: "1", name: "Jayanand Chelyar", place: "THOKURU", phone: "9964590138" },
+            { sl_no: "2", name: "Pushparaj Shetty", place: "THOKURU", phone: "7899494328" },
+            { sl_no: "3", name: "Sukesh Pavanje", place: "HALEYANGADI", phone: "9844882757" },
+            { sl_no: "4", name: "Manoj Kumar", place: "HALEYANGADI", phone: "9901851312" },
+            { sl_no: "5", name: "Anil Kundar", place: "HALEYANGADI", phone: "9743082089" },
+            // ...(other booth data)
+        ];
+
+        const panchayathData = [
+            { sl_no: "1", panchayath: "Beluvai", post: "Vice President", name: "Jayantho Saliyan", phone: "7204212166" },
+            { sl_no: "2", panchayath: "Padumarnadu", post: "President", name: "Vasudeva Bhat", phone: "9945275941" },
+            { sl_no: "3", panchayath: "Padumarnadu", post: "Vice President", name: "Smt. Sampa", phone: "8971583292" },
+            { sl_no: "4", panchayath: "Daregudde", post: "President", name: "Ashok Shetty", phone: "9845479753" },
+            { sl_no: "5", panchayath: "Daregudde", post: "Vice President", name: "Smt. Nalini", phone: "9686750224" },
+            { sl_no: "6", panchayath: "Shirthady", post: "President", name: "-", phone: "-" },
+            { sl_no: "7", panchayath: "Shirthady", post: "Vice President", name: "-", phone: "-" },
+            { sl_no: "8", panchayath: "Valpady", post: "President", name: "Vishalakshi", phone: "8971704275" },
+            { sl_no: "9", panchayath: "Valpady", post: "Vice President", name: "Ganesh B", phone: "9611859142" },
+            { sl_no: "10", panchayath: "Nellikar", post: "President", name: "Uday Poojary", phone: "9731854289" },
+            { sl_no: "11", panchayath: "Nellikar", post: "Vice President", name: "Susheela", phone: "9380563217" },
+            { sl_no: "12", panchayath: "Puthige", post: "President", name: "-", phone: "-" },
+            { sl_no: "13", panchayath: "Puthige", post: "Vice President", name: "Dayanad", phone: "9008903993" },
+            { sl_no: "14", panchayath: "Padupanambur", post: "President", name: "Kusuma Chandrashekar", phone: "9343408368" },
+            { sl_no: "15", panchayath: "Padupanambur", post: "Vice President", name: "Hemanath Amin", phone: "8105008609" },
+            { sl_no: "16", panchayath: "Haleyangadi", post: "President", name: "Poornima", phone: "9964677575" },
+            { sl_no: "17", panchayath: "Haleyangadi", post: "Vice President", name: "Chandrika", phone: "7483948760" },
+            // ...(remaining panchayath data)
+        ];
+
+        const tableBodyBooth = document.querySelector("#booth-table tbody");
+        const tableBodyPanchayath = document.querySelector("#panchayath-table tbody");
+
+        const createButtonGroup = (phone) => `
+            <div class="btn-group">
+                <button class="action-btn" onclick="window.location.href='tel:${phone}'">
+                    <img src="https://cdn-icons-png.flaticon.com/128/724/724664.png" alt="Call">
+                </button>
+                <button class="action-btn" onclick="window.location.href='https://wa.me/${phone}?text=Hello'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                </button>
+            </div>
+        `;
+
+        boothData.forEach(person => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${person.sl_no}</td>
+                <td>${person.name}</td>
+                <td>${person.place}</td>
+                <td>${person.phone}</td>
+                <td>${createButtonGroup(person.phone)}</td>
+            `;
+            tableBodyBooth.appendChild(row);
+        });
+
+        panchayathData.forEach(panch => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${panch.sl_no}</td>
+                <td>${panch.panchayath}</td>
+                <td>${panch.post}</td>
+                <td>${panch.name}</td>
+                <td>${panch.phone}</td>
+                <td>${createButtonGroup(panch.phone)}</td>
+            `;
+            tableBodyPanchayath.appendChild(row);
+        });
+    </script>
+</body>
+</html>
